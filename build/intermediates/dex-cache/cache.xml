@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_a6a13f9a4f9ee52fb9e81d65f80cd56ac27860ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_c40bd6d4c3ac08ff3b36abe301e570e349bf0da1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.8.0_c4057a10a39faec82f1ce62bd25273f7d6bf4172/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="063e2030a4356254e4d3af488e0e62a4bc28d360">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_45ee6d01bc2f3530e7ee9a1958f55bafc937453a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.8.0_5cd929bb75a37dd187a4e66653e54e56f7cedd43/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_35bf6a0e01a1fa008c93769189daa967b3dba3fe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_7e7c2c111f57ca0934fb4059b023c294437c4224/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d0ec8024934fc78b092d430d53ceb9200d27473e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_e1b3ed9ec7214382f6309a41709bd16070e38642/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_2941c339ca3ae8a2a02299776e2704f9df56d65e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_2a2472e9ed8598a1547918117018d1203ed8bdaa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_25b20f94a234cb92af1e8b2076e76106e29c6161/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_a9cb4fcd97946dba1d890f5f541655d75ef66664/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="f62e1ca29fadcf5be525b5d594458469090bb436">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_295e5aef5db703f98f9f32a8e9518fbf7a05ec9f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.8.0_7e3a0746e00d259ebf6881229f590867e192754a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-9.8.0_413d0f34ab70a0af7cc14ea4c04d123004a3c905/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_9b59934e1707812ba9cdfc81731e6ab110c0dc77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_b2d4ee537fa0f48c652d640b950be65e6c1d0a73/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_4d8d9c98671461669476aa006c86ded446769549/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_052fffda8967dfe828af6de4bf8d47f53b3f99b6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.8.0_1515417b9c29197cef759a568f3359bd5d93c875/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/jips/auditProjet/ISEE12/CuriosityBLEProject/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_7a61d0c7ece53585ca3f228760cd42fe65b87556/classes.dex" />
+    </item>
+
+</items>
