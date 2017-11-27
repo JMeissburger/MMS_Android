@@ -49,11 +49,19 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/simuble_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_1"
+            android:layout_centerHorizontal="true"
+            android:text="Simulation BLE" />
+
         <View
             android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/relative_layout_1"
+            android:layout_below="@+id/simuble_button"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/black" />
@@ -74,6 +82,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/devices_title" />
 
+
     </RelativeLayout>
+
+
 
 </RelativeLayout>

@@ -18,7 +18,11 @@ android {
         }
     }
 }
-
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -28,4 +32,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:9.8.0'
     compile 'com.google.android.gms:play-services-plus:9.8.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.lecho:hellocharts-android:v1.5.8'
 }

@@ -171,6 +171,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Simuble used to simulate the BLE connection
+        Button mSimuBle = (Button) findViewById(R.id.simuble_button) ;
+        mSimuBle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,LineChartActivity.class));
+            }
+        });
+
         // ListView and adapter used to display the list of detected devices
         listViewLE = (ListView) findViewById(R.id.discovery_list);
         listBluetoothDevice = new ArrayList<>();
