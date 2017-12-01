@@ -10,8 +10,14 @@
 
     <lecho.lib.hellocharts.view.LineChartView
         android:id="@+id/chart"
+        android:layout_below="@+id/testview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
     </lecho.lib.hellocharts.view.LineChartView>
+    <TextView
+        android:id="@+id/testview"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="TEST"/>
 
 </RelativeLayout>

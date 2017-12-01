@@ -33,7 +33,7 @@ public class SplashScreen extends AppCompatActivity {
         timer.schedule(timerTask, DEFAULT_DELAY);
     }
     public void startMain(){
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this,LineChartActivity.class));
         finish();
     }
 }
