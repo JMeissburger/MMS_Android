@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MMS_Projet</string>
+    <string name="saved_high_score" />
 </resources>

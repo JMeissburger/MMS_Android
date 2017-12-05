@@ -14,14 +14,20 @@ import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final long DEFAULT_DELAY = 5000;
+    private static final long DEFAULT_DELAY = 1000;
     ImageView mImageView;
+    Intent mIntent;
+    float t = 12;
+    String test ="t";
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         mImageView = (ImageView) findViewById(R.id.image);
+
+        mIntent = new Intent(this,TestScreen.class);
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -33,7 +39,7 @@ public class SplashScreen extends AppCompatActivity {
         timer.schedule(timerTask, DEFAULT_DELAY);
     }
     public void startMain(){
-        startActivity(new Intent(this,LineChartActivity.class));
+        startActivity(mIntent);
         finish();
     }
 }

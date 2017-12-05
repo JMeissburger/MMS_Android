@@ -1,7 +1,5 @@
 package com.example.user.curiositybleproject;
 
-import android.content.Context;
-
 import com.example.user.curiositybleproject.Interfaces.IAccCaptor;
 import com.example.user.curiositybleproject.Interfaces.IDataNotify;
 
@@ -29,7 +27,6 @@ public class AccCaptor implements IAccCaptor, Runnable{
         mIsRunning = true;
         mThread = new Thread(this);
         mThread.start();
-
     }
 
     @Override
@@ -39,7 +36,7 @@ public class AccCaptor implements IAccCaptor, Runnable{
         {
             if(i != 100)
             {
-                mTab_Data = i;
+                mTab_Data = 1;
                 mDataNotify.dataNotify(mId, (int) mTab_Data);
                 i++;
             }

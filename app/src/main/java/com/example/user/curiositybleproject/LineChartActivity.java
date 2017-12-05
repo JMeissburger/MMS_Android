@@ -1,5 +1,9 @@
 package com.example.user.curiositybleproject;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -34,18 +38,30 @@ import lecho.lib.hellocharts.view.Chart;
 import lecho.lib.hellocharts.view.LineChartView;
 
 public class LineChartActivity extends ActionBarActivity {
-    final String TAG = "LineChartActivity ";
+
+    Bundle mBundleFromBLE = new Bundle() ,mBundleToChart = new Bundle();
+    String mStringFromBLE = "DataBLE", mStringToChart = "DataChart";
+    float mFloatToChart;
+
+    PlaceholderFragment PlaceholderFragmentObj = new PlaceholderFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_chart);
+
+        mBundleFromBLE = getIntent().getExtras();
+
+        mFloatToChart = mBundleFromBLE.getFloat(mStringFromBLE);
+
+        mBundleToChart.putFloat(mStringToChart,mFloatToChart);
+
+        PlaceholderFragmentObj.setArguments(mBundleToChart);
+
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container,PlaceholderFragmentObj).commit();
         }
     }
-
-
 
     /**
      * A fragment containing a line chart.
@@ -53,6 +69,8 @@ public class LineChartActivity extends ActionBarActivity {
     public static class PlaceholderFragment extends Fragment  implements IDataNotify{
 
         final String TAG = "PlaceholderFragment";
+
+        //Bundle mBundlePlaceholder = new Bundle();
 
         private LineChartView chart;
         private LineChartData data;
@@ -77,12 +95,14 @@ public class LineChartActivity extends ActionBarActivity {
         TextView mTextView;
         IAccCaptor mAccCaptor;
 
+        float ft;
+
         Handler mHandler = new Handler();
 
         Runnable mRunnable = new Runnable() {
             @Override
             public void run() {
-                mTextView.setText(""+mAccCaptor.getAcc());
+                mTextView.setText("");
                 mHandler.postDelayed(this,1000);
             }
         };
@@ -107,7 +127,10 @@ public class LineChartActivity extends ActionBarActivity {
             mTextView = (TextView) rootView.findViewById(R.id.testview);
             mAccCaptor = new AccCaptor(PlaceholderFragment.this);
 
+            ft = getArguments().getFloat("DataChart");
+
             mHandler.post(mRunnable);
+
 
             // Generate some random values.
             generateValues();
@@ -122,12 +145,10 @@ public class LineChartActivity extends ActionBarActivity {
             return rootView;
         }
 
-
-
-        private void generateValues() {
+         private void generateValues() {
             for (int i = 0; i < maxNumberOfLines; ++i) {
                 for (int j = 0; j < numberOfPoints; ++j) {
-                    randomNumbersTab[i][j] = mAccCaptor.getAcc();//100f
+                    randomNumbersTab[i][j] = ft;//100f
                 }
             }
         }

@@ -31,6 +31,10 @@
 
         </activity>
 
+        <activity android:name=".TestScreen">
+
+        </activity>
+
         <activity android:name=".LineChartActivity">
 
         </activity>
