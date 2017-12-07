@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int RQS_ENABLE_BLUETOOTH = 1;
 
+    private Button mFragmentButton;
     private Button mScanButton;
     private ListView listViewLE;
     private List<BluetoothDevice> listBluetoothDevice;
@@ -65,18 +66,27 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog mProgressDialog;
     private static final long SCAN_PERIOD = 5000;
 
-//    private List<BluetoothGattService> mServices;
+    //    private List<BluetoothGattService> mServices;
     private BluetoothGattCharacteristic mPotarCharacteristic;
 
+    private TextView mPotarValueTextView;
+    private static float value_potar = 0;
     private Handler mHandler = new Handler();
     private Handler mHandler2 = new Handler();
 
     private Intent myIntent;
     public static final String SOME_KEY = "some_key";
 
+    Intent mIntentToLine;
+    float[] test = new float[]{0,1,2,3,4,5,6,7,8,9,10};
+    public static final String mStringFromBLE = "DataBLE";
+
     Runnable mUIrunnable = new Runnable() {
         @Override
         public void run() {
+            mPotarValueTextView.setText(""+value_potar);
+//            value_potar += 1;
+//          mPotarValueTextView.setText();
 
             mHandler2.postDelayed(this, 1000);
         }
@@ -134,30 +144,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Button that enables bluetooth when clicked on
-        Button mEnableButton = (Button) findViewById(R.id.activate_button);
-        mEnableButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mBluetoothAdapter.isEnabled()) {
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, RQS_ENABLE_BLUETOOTH);
-                } else {
-                    Toast.makeText(MainActivity.this, "Bluetooth is already enabled", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        // Simuble used to simulate the BLE connection
 
-        // Button that stops the scan
-        Button mStopButton = (Button) findViewById(R.id.stop_button);
-        mStopButton.setOnClickListener(new View.OnClickListener() {
+        mIntentToLine = new Intent(this,LineChartActivity.class);
+        Button mSimuBle = (Button) findViewById(R.id.simuble_button) ;
+        mSimuBle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                scanLeDevice(false);
-                Toast.makeText(MainActivity.this, "Scan stopped", Toast.LENGTH_LONG).show();
-                if (mUIrunnable != null && mHandler != null) {
-                    mHandler2.removeCallbacks(mUIrunnable);
-                }
+            public void onClick(View view) {
+                mIntentToLine.putExtra(mStringFromBLE,test);
+                startActivity(mIntentToLine);
             }
         });
 
@@ -171,14 +166,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Simuble used to simulate the BLE connection
-        Button mSimuBle = (Button) findViewById(R.id.simuble_button) ;
-        mSimuBle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,LineChartActivity.class));
-            }
-        });
+        mPotarValueTextView= (TextView) findViewById(R.id.textviewstartstop);
 
         // ListView and adapter used to display the list of detected devices
         listViewLE = (ListView) findViewById(R.id.discovery_list);
@@ -448,7 +436,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Characteristics", gattCharacteristic.getUuid().toString());
             }
 
-//            gatt.readCharacteristic(mServices.get(2).getCharacteristics().get(0));
+//          gatt.readCharacteristic(mServices.get(2).getCharacteristics().get(0));
             mPotarCharacteristic = mServices.get(2).getCharacteristics().get(0);
 
             setNotifications();
@@ -469,6 +457,17 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        @Override
+        public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
+            super.onCharacteristicChanged(gatt, characteristic);
+//            Integer Value = characteristic.getValue()[0] & 0xff;
+            value_potar = (characteristic.getValue()[0])/*& 0xff*/;
+            Log.e("Value = ", String.valueOf(value_potar));
+
+//            mPotarValueTextView.setText(String.valueOf(Value));
+
+
+        }
 
     };
 

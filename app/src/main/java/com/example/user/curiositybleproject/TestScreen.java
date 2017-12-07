@@ -14,7 +14,8 @@ public class TestScreen extends AppCompatActivity {
 
     Button mButton;
     Intent mIntent;
-    float test = 10;
+    float[] test = new float[]{0,1,2,3,4,5,6,7,8,9,10};
+
     String mStringFromBLE = "DataBLE";
 
     @Override

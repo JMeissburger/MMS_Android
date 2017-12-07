@@ -1,18 +1,11 @@
 package com.example.user.curiositybleproject;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -41,7 +34,7 @@ public class LineChartActivity extends ActionBarActivity {
 
     Bundle mBundleFromBLE = new Bundle() ,mBundleToChart = new Bundle();
     String mStringFromBLE = "DataBLE", mStringToChart = "DataChart";
-    float mFloatToChart;
+    float[] mFloatToChart;
 
     PlaceholderFragment PlaceholderFragmentObj = new PlaceholderFragment();
 
@@ -52,9 +45,11 @@ public class LineChartActivity extends ActionBarActivity {
 
         mBundleFromBLE = getIntent().getExtras();
 
-        mFloatToChart = mBundleFromBLE.getFloat(mStringFromBLE);
+        //mFloatToChart[1] = mBundleFromBLE.getFloat(mStringFromBLE);
+        mFloatToChart = mBundleFromBLE.getFloatArray(mStringFromBLE);
 
-        mBundleToChart.putFloat(mStringToChart,mFloatToChart);
+        //mBundleToChart.putFloat(mStringToChart,mFloatToChart);
+        mBundleToChart.putFloatArray(mStringToChart,mFloatToChart);
 
         PlaceholderFragmentObj.setArguments(mBundleToChart);
 
@@ -69,8 +64,6 @@ public class LineChartActivity extends ActionBarActivity {
     public static class PlaceholderFragment extends Fragment  implements IDataNotify{
 
         final String TAG = "PlaceholderFragment";
-
-        //Bundle mBundlePlaceholder = new Bundle();
 
         private LineChartView chart;
         private LineChartData data;
@@ -95,7 +88,7 @@ public class LineChartActivity extends ActionBarActivity {
         TextView mTextView;
         IAccCaptor mAccCaptor;
 
-        float ft;
+        float[] ft;
 
         Handler mHandler = new Handler();
 
@@ -127,7 +120,7 @@ public class LineChartActivity extends ActionBarActivity {
             mTextView = (TextView) rootView.findViewById(R.id.testview);
             mAccCaptor = new AccCaptor(PlaceholderFragment.this);
 
-            ft = getArguments().getFloat("DataChart");
+            ft = getArguments().getFloatArray("DataChart");
 
             mHandler.post(mRunnable);
 
@@ -148,7 +141,7 @@ public class LineChartActivity extends ActionBarActivity {
          private void generateValues() {
             for (int i = 0; i < maxNumberOfLines; ++i) {
                 for (int j = 0; j < numberOfPoints; ++j) {
-                    randomNumbersTab[i][j] = ft;//100f
+                    randomNumbersTab[i][j] = ft[j];//100f
                 }
             }
         }

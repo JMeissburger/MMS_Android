@@ -14,18 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/activate_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Enable Bluetooth" />
-
         <LinearLayout
             android:id="@+id/relative_layout_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/activate_button"
             android:layout_centerHorizontal="true"
             android:gravity="center">
 
@@ -36,24 +28,26 @@
                 android:text="Scan" />
 
             <Button
-                android:id="@+id/stop_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Stop" />
-
-            <Button
                 android:id="@+id/disconnect_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Disconnect"/>
 
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/textviewstartstop"
+            android:layout_below="@id/relative_layout_1"
+            android:layout_centerHorizontal="true"
+            android:text="Wait for Start or Stop"/>
 
         <Button
             android:id="@+id/simuble_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relative_layout_1"
+            android:layout_below="@id/textviewstartstop"
             android:layout_centerHorizontal="true"
             android:text="Simulation BLE" />
 
