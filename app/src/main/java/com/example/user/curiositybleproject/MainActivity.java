@@ -78,13 +78,39 @@ public class MainActivity extends AppCompatActivity {
     public static final String SOME_KEY = "some_key";
 
     Intent mIntentToLine;
-    float[] test = new float[]{0,1,2,3,4,5,6,7,8,9,10};
+    float[] DataTab, test = new float[]{0,1,2,3,4,5,6,7,8,9,10};
+    int Size_Tab;
     public static final String mStringFromBLE = "DataBLE";
+    int i = -1;
 
     Runnable mUIrunnable = new Runnable() {
         @Override
         public void run() {
-            mPotarValueTextView.setText(""+value_potar);
+
+            if(value_potar != 0)
+            {
+                if(i == -1) {
+                    Size_Tab = (int)value_potar;
+                    DataTab = new float[Size_Tab];
+                    mPotarValueTextView.setText(""+i+" Size of DataTab "+value_potar);
+                }
+                else if(i >= Size_Tab){
+
+                    test = DataTab;
+                    mPotarValueTextView.setText(""+i+" Val "+value_potar);
+
+                }
+                else{
+                    DataTab[i] = value_potar;
+                    mPotarValueTextView.setText(""+i+" Data"+DataTab[i]+" valeur : "+value_potar);
+                }
+                i++;
+            }
+            else
+            {
+                mPotarValueTextView.setText("Vide : "+value_potar);
+            }
+
 //            value_potar += 1;
 //          mPotarValueTextView.setText();
 
@@ -151,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         mSimuBle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mIntentToLine.putExtra(mStringFromBLE,test);
+                mIntentToLine.putExtra(mStringFromBLE,DataTab);
                 startActivity(mIntentToLine);
             }
         });
@@ -163,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mGatt != null) {
                     mGatt.disconnect();
                 }
+                i=0;
             }
         });
 

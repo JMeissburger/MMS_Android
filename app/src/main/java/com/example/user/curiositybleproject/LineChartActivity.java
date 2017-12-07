@@ -69,7 +69,7 @@ public class LineChartActivity extends ActionBarActivity {
         private LineChartData data;
         private int numberOfLines = 1;
         private int maxNumberOfLines = 4;
-        private int numberOfPoints = 5;
+        private int numberOfPoints = 3;
 
         float[][] randomNumbersTab = new float[maxNumberOfLines][numberOfPoints];
 
