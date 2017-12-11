@@ -38,14 +38,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.curiositybleproject.Interfaces.IAccCaptor;
+import com.example.user.curiositybleproject.Interfaces.IDataNotify;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IDataNotify {
 
     public static final UUID UUID_POTAR = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+    final String TAG = "MainActivity";
 
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothLeScanner mBluetoothLeScanner;
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     private static float value_potar = 0;
     private Handler mHandler = new Handler();
     private Handler mHandler2 = new Handler();
+    private Handler mHandler3 = new Handler();
 
     private Intent myIntent;
     public static final String SOME_KEY = "some_key";
@@ -81,7 +86,20 @@ public class MainActivity extends AppCompatActivity {
     float[] DataTab, test = new float[]{0,1,2,3,4,5,6,7,8,9,10};
     int Size_Tab;
     public static final String mStringFromBLE = "DataBLE";
-    int i = -1;
+    int nb_Data_BLE = -1;
+
+    IAccCaptor mAccCaptor;
+
+    Runnable mRunnable_Simu = new Runnable() {
+        @Override
+        public void run() {
+
+
+                value_potar = mAccCaptor.getAcc();
+
+            mHandler3.postDelayed(this,1000);
+        }
+    };
 
     Runnable mUIrunnable = new Runnable() {
         @Override
@@ -89,26 +107,25 @@ public class MainActivity extends AppCompatActivity {
 
             if(value_potar != 0)
             {
-                if(i == -1) {
+                if(nb_Data_BLE == -1) {
                     Size_Tab = (int)value_potar;
                     DataTab = new float[Size_Tab];
-                    mPotarValueTextView.setText(""+i+" Size of DataTab "+value_potar);
+                    mPotarValueTextView.setText(""+nb_Data_BLE+" Size of DataTab "+value_potar);
                 }
-                else if(i >= Size_Tab){
+                else if(nb_Data_BLE >= Size_Tab){
 
-                    test = DataTab;
-                    mPotarValueTextView.setText(""+i+" Val "+value_potar);
+                    mPotarValueTextView.setText(" Press Result");
 
                 }
                 else{
-                    DataTab[i] = value_potar;
-                    mPotarValueTextView.setText(""+i+" Data"+DataTab[i]+" valeur : "+value_potar);
+                    DataTab[nb_Data_BLE] = value_potar;
+                    mPotarValueTextView.setText("nb_Data_BLE ="+nb_Data_BLE+" Size_Tab ="+ Size_Tab+" Data ="+DataTab[nb_Data_BLE]+" valeur : "+value_potar);
                 }
-                i++;
+                nb_Data_BLE++;
             }
             else
             {
-                mPotarValueTextView.setText("Vide : "+value_potar);
+                mPotarValueTextView.setText("Wait For BLE Data");
             }
 
 //            value_potar += 1;
@@ -123,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void dataNotify(int idCaptor, int Tab_Data) {
+        Log.i(TAG,"id = "+idCaptor + "\n Tab_Data = "+Tab_Data);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        myIntent = new Intent(getApplicationContext(), MapActivity.class);
+         mAccCaptor = new AccCaptor(MainActivity.this);
 
         // Create the progress dialog and set a custom message
         mProgressDialog = new ProgressDialog(this);
@@ -173,11 +196,25 @@ public class MainActivity extends AppCompatActivity {
         // Simuble used to simulate the BLE connection
 
         mIntentToLine = new Intent(this,LineChartActivity.class);
-        Button mSimuBle = (Button) findViewById(R.id.simuble_button) ;
-        mSimuBle.setOnClickListener(new View.OnClickListener() {
+
+        Button mButton_Simu = (Button) findViewById(R.id.simuble_button);
+        mButton_Simu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mIntentToLine.putExtra(mStringFromBLE,DataTab);
+                mHandler3.post(mRunnable_Simu);
+
+                mHandler2.post(mUIrunnable);
+
+
+            }
+        });
+
+        Button mButton_Result = (Button) findViewById(R.id.result_button) ;
+        mButton_Result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                test = DataTab;
+                mIntentToLine.putExtra(mStringFromBLE,test);
                 startActivity(mIntentToLine);
             }
         });
@@ -189,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mGatt != null) {
                     mGatt.disconnect();
                 }
-                i=0;
+                nb_Data_BLE = -1;
             }
         });
 

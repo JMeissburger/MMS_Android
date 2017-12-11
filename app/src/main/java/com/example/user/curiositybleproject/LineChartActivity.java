@@ -61,17 +61,15 @@ public class LineChartActivity extends ActionBarActivity {
     /**
      * A fragment containing a line chart.
      */
-    public static class PlaceholderFragment extends Fragment  implements IDataNotify{
-
-        final String TAG = "PlaceholderFragment";
+    public static class PlaceholderFragment extends Fragment {
 
         private LineChartView chart;
         private LineChartData data;
         private int numberOfLines = 1;
         private int maxNumberOfLines = 4;
-        private int numberOfPoints = 3;
+        private int numberOfPoints;
 
-        float[][] randomNumbersTab = new float[maxNumberOfLines][numberOfPoints];
+        float[][] randomNumbersTab;
 
         private boolean hasAxes = true;
         private boolean hasAxesNames = true;
@@ -86,7 +84,6 @@ public class LineChartActivity extends ActionBarActivity {
         private boolean hasGradientToTransparent = false;
 
         TextView mTextView;
-        IAccCaptor mAccCaptor;
 
         float[] ft;
 
@@ -100,12 +97,6 @@ public class LineChartActivity extends ActionBarActivity {
             }
         };
 
-        @Override
-        public void dataNotify(int idCaptor, int Tab_Data) {
-            Log.i(TAG,"id = "+idCaptor + "\n Tab_Data = "+Tab_Data);
-
-        }
-
         public PlaceholderFragment() {
         }
 
@@ -118,9 +109,12 @@ public class LineChartActivity extends ActionBarActivity {
             chart.setOnValueTouchListener(new ValueTouchListener());
 
             mTextView = (TextView) rootView.findViewById(R.id.testview);
-            mAccCaptor = new AccCaptor(PlaceholderFragment.this);
 
             ft = getArguments().getFloatArray("DataChart");
+
+            numberOfPoints = ft.length;
+
+            randomNumbersTab = new float[maxNumberOfLines][numberOfPoints];
 
             mHandler.post(mRunnable);
 

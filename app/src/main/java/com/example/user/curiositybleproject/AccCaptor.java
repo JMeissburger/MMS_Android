@@ -34,18 +34,19 @@ public class AccCaptor implements IAccCaptor, Runnable{
         int i = 0;
         while(mIsRunning)
         {
-            if(i != 100)
+            if(i != 10)
             {
-                mTab_Data = 1;
+                mTab_Data = 20+i;
                 mDataNotify.dataNotify(mId, (int) mTab_Data);
                 i++;
             }
             else
             {
                 i = 0;
+                mTab_Data = 0;
             }
             try {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

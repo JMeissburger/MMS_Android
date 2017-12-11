@@ -41,7 +41,7 @@
             android:id="@+id/textviewstartstop"
             android:layout_below="@id/relative_layout_1"
             android:layout_centerHorizontal="true"
-            android:text="Wait for Start or Stop"/>
+            android:text="Wait for Data"/>
 
         <Button
             android:id="@+id/simuble_button"
@@ -49,13 +49,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textviewstartstop"
             android:layout_centerHorizontal="true"
-            android:text="Simulation BLE" />
+            android:text="Simulate BLE Data" />
+
+        <Button
+            android:id="@+id/result_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/simuble_button"
+            android:layout_centerHorizontal="true"
+            android:text="Result" />
 
         <View
             android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/simuble_button"
+            android:layout_below="@+id/result_button"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/black" />
