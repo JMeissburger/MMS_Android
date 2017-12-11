@@ -43,7 +43,6 @@ public class AccCaptor implements IAccCaptor, Runnable{
             else
             {
                 i = 0;
-                mTab_Data = 0;
             }
             try {
                 Thread.sleep(1000);

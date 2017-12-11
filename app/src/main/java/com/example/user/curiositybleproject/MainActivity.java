@@ -88,14 +88,23 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
     public static final String mStringFromBLE = "DataBLE";
     int nb_Data_BLE = -1;
 
+    boolean mConnect = false;
+    Button mButton_Result;
+
     IAccCaptor mAccCaptor;
 
     Runnable mRunnable_Simu = new Runnable() {
         @Override
         public void run() {
 
-
-                value_potar = mAccCaptor.getAcc();
+                if(mConnect)
+                {
+                    value_potar = mAccCaptor.getAcc();
+                }
+                else
+                {
+                    value_potar = 0;
+                }
 
             mHandler3.postDelayed(this,1000);
         }
@@ -115,12 +124,15 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
                 else if(nb_Data_BLE >= Size_Tab){
 
                     mPotarValueTextView.setText(" Press Result");
+                    mButton_Result.setEnabled(true);
 
                 }
                 else{
                     DataTab[nb_Data_BLE] = value_potar;
-                    mPotarValueTextView.setText("nb_Data_BLE ="+nb_Data_BLE+" Size_Tab ="+ Size_Tab+" Data ="+DataTab[nb_Data_BLE]+" valeur : "+value_potar);
+                    mPotarValueTextView.setText("Collecting Data");
+                    //mPotarValueTextView.setText("nb_Data_BLE ="+nb_Data_BLE+" Size_Tab ="+ Size_Tab+" Data ="+DataTab[nb_Data_BLE]+" valeur : "+value_potar);
                 }
+
                 nb_Data_BLE++;
             }
             else
@@ -131,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
 //            value_potar += 1;
 //          mPotarValueTextView.setText();
 
-            mHandler2.postDelayed(this, 1000);
+            mHandler2.postDelayed(this, 500);
         }
     };
 
@@ -201,15 +213,16 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
         mButton_Simu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mHandler3.post(mRunnable_Simu);
 
+                mConnect = true;
+                mHandler3.post(mRunnable_Simu);
                 mHandler2.post(mUIrunnable);
 
 
             }
         });
 
-        Button mButton_Result = (Button) findViewById(R.id.result_button) ;
+        mButton_Result = (Button) findViewById(R.id.result_button) ;
         mButton_Result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -218,6 +231,7 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
                 startActivity(mIntentToLine);
             }
         });
+        mButton_Result.setEnabled(false);
 
         Button mDisconnectButton = (Button) findViewById(R.id.disconnect_button);
         mDisconnectButton.setOnClickListener(new View.OnClickListener() {
@@ -226,6 +240,7 @@ public class MainActivity extends AppCompatActivity implements IDataNotify {
                 if (mGatt != null) {
                     mGatt.disconnect();
                 }
+                mConnect = false;
                 nb_Data_BLE = -1;
             }
         });
